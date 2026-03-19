@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="auth-background"></div>
+    <div id="auth-container" class="app-container">
+        <div class="auth-card glass-panel">
+            <h1 id="auth-title" class="auth-title">Welcome Back</h1>
+            <p id="auth-subtitle" class="auth-subtitle">Sign in to your To-Do Companion</p>
+
+            <form id="auth-form">
+                <div class="input-group hidden" id="name-group">
+                    <i class="input-icon">&#128100;</i>
+                    <input type="text" id="auth-name" placeholder="Full Name">
+                </div>
+                <div class="input-group">
+                    <i class="input-icon">&#9993;</i>
+                    <input type="email" id="auth-email" placeholder="Email" required>
+                </div>
+                <div class="input-group auth-password-group">
+                    <i class="input-icon">&#128274;</i>
+                    <input type="password" id="auth-password" placeholder="Password" minlength="4" required>
+                </div>
+                <button type="submit" id="auth-submit-btn" class="btn btn-primary auth-submit">Sign In</button>
+            </form>
+
+            <p class="auth-switch">
+                <span id="auth-switch-text">Don't have an account?</span>
+                <a href="#" id="auth-switch-btn">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="app-container" class="hidden">
+        <header class="dashboard-header">
+            <h1>My Tasks</h1>
+            <div class="header-actions">
+                <button class="bell-icon">&#128276;</button>
+                <button id="logout-btn" class="btn btn-secondary btn-sm" style="background: white; color: var(--primary);">Logout</button>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <section class="task-input-section card">
+            <h2>Add New Task</h2>
+            <form id="task-form">
+                <div class="input-group">
+                    <input type="text" id="task-name" placeholder="What needs to be done?" required>
+                </div>
+                <div class="datetime-group">
+                    <input type="date" id="task-date" required>
+                    <input type="time" id="task-time" required>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Add Task</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary hidden">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="views-section">
+            <div class="tabs">
+                <button class="tab-btn active" data-target="active-view">Active Tasks</button>
+                <button class="tab-btn" data-target="history-view">History</button>
+            </div>
+
+            <div id="active-view" class="view-content active">
+                <div id="active-tasks-list" class="task-list">
+                    <!-- Tasks will be rendered here -->
+                </div>
+            </div>
+
+            <div id="history-view" class="view-content">
+                <div class="history-header">
+                    <h3>Completed Tasks</h3>
+                    <button id="clear-history-btn" class="btn btn-danger btn-sm">Clear History</button>
+                </div>
+                <div id="history-tasks-list" class="task-list">
+                    <!-- Completed tasks will be rendered here -->
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+
+    <div id="notification-container"></div>
+
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>
